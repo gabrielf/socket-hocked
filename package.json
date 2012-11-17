@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "test": "mocha -R spec tests/unit",
+    "func-test": "mocha -R spec tests/functional",
     "predeploy": "echo This will be run before deploying the app",
     "postdeploy": "echo This will be run after deploying the app"
   },
@@ -13,6 +14,7 @@
     "express": "3.0.3"
   },
   "devDependencies" : {
-    "mocha": "1.7.0"
+    "mocha": "1.7.0",
+    "zombie": "2.0.0-alpha8"
   }
 }
