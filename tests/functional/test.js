@@ -1,9 +1,12 @@
 var Browser = require("zombie");
 var assert = require("assert");
+var nconf = require('nconf');
+
+nconf.argv().env().file(__dirname + '/../../config/' + (process.env.NODE_ENV || 'development') + '.json');
+
+var baseUrl = 'http://' + nconf.get('host') + ':' + nconf.get('port');
 
 browser = new Browser()
-
-var baseUrl = process.argv[2] || 'http://localhost:8080'
 
 describe('SocketHooked (' + baseUrl + ')', function () {
   it('should have a start page', function () {

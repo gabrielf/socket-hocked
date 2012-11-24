@@ -1,5 +1,8 @@
 var express = require('express');
 var app = express();
+var nconf = require('nconf');
+
+nconf.argv().env().file(__dirname + '/config/' + (process.env.NODE_ENV || 'development') + '.json');
 
 app.get('/', function(req, res) {
   var body = 'Hello World';
@@ -8,6 +11,6 @@ app.get('/', function(req, res) {
   res.end(body);
 });
 
-var port = process.argv[2] || 8080;
+var port = nconf.get('port');
 app.listen(port);
 console.log('Listening on port: ' + port);
