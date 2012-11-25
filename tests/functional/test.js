@@ -9,10 +9,11 @@ var baseUrl = 'http://' + nconf.get('host') + ':' + nconf.get('port');
 browser = new Browser()
 
 describe('SocketHooked (' + baseUrl + ')', function () {
-  it('should have a start page', function () {
+  it('should have a start page', function (done) {
     browser.visit(baseUrl + "/", function () {
       assert.ok(browser.success);
       assert.equal(browser.text(), "Hello World");
+      done();
     });
   });
 });
