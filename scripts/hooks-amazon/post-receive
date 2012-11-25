@@ -6,8 +6,11 @@ unset GIT_DIR
 unset GIT_WORK_TREE
 
 cd /home/ubuntu/checkout
+# get latest code
 git fetch
 git reset --hard origin/master
+# install dependencies
 npm install
-#should "forever restart" instead of relying at forever watching for file changes
+# restart node process
+sudo forever restart app.js
 cd -
