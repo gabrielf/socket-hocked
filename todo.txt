@@ -1,3 +1,0 @@
-
-* pre-install
-    npm install

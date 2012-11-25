@@ -1,6 +1,3 @@
-
-AMAZON_HOSTNAME=ec2-54-246-25-232.eu-west-1.compute.amazonaws.com
-
 # this makes sure the script exists on the first non zero exit code
 set -e
 

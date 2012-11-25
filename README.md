@@ -25,3 +25,8 @@ On every push to origin these are the steps that are done. If a step fails then 
   4. Functional tests (scripts/jenkins/3-functional-tests.sh)
     a) On success: scripts/jenkins/4-success.sh will run and record the revision number
     b) On failure: scripts/jenkins/4-rollback.sh will run and rollback the server to the last known successful revision
+
+The amazon git repo is setup with:
+
+  git init --bare .
+  git config receive.denyNonFastForwards true
