@@ -6,6 +6,8 @@ unset GIT_DIR
 unset GIT_WORK_TREE
 
 cd /home/ubuntu/checkout
-git pull
+git fetch
+git reset --hard origin/master
 npm install
+#should "forever restart" instead of relying at forever watching for file changes
 cd -
