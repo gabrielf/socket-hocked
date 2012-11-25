@@ -16,6 +16,13 @@ describe('SocketHooked (' + baseUrl + ')', function () {
       done();
     });
   });
+  it('should have a revision page', function (done) {
+    browser.visit(baseUrl + "/revision", function () {
+      assert.ok(browser.success);
+      assert.ok(browser.text().trim().match(/^[0-9a-f]{7}$/));
+      done();
+    });
+  });
 });
 
 //  // Fill email, password and submit form
