@@ -16,3 +16,6 @@ git merge origin/master
 
 # ok, let's push it to amazon already!
 git push amazon master
+
+# give the application some time to restart
+sleep 1

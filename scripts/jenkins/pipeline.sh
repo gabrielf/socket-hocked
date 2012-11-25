@@ -9,5 +9,6 @@ DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 if [[ $? -eq 0 ]]; then
   "${DIR}/4-success.sh"
 else
-  echo "${DIR}/4-rollback.sh"
+  "${DIR}/4-rollback.sh"
+  exit -1 # jenkins should not interpret rolling back as a success
 fi
