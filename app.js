@@ -16,7 +16,7 @@ app.get('/', function(req, res) {
   res.end(body);
 });
 
-app.get('/git-revision', function(req, res) {
+app.get('/revision', function(req, res) {
   exec('git rev-parse --short HEAD', function (err, stdout, stderr) {
     var revision;
     if (err) {
