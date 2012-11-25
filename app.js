@@ -3,6 +3,10 @@ var app = express();
 var nconf = require('nconf');
 var exec = require('child_process').exec;
 
+/**
+ * As a courtesy to the next developer may we suggest that you write tests for new code. Thank you!
+ */
+
 nconf.argv().env().file(__dirname + '/config/' + (process.env.NODE_ENV || 'development') + '.json');
 
 app.get('/', function(req, res) {

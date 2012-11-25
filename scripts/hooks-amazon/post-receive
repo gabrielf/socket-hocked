@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# git will set these environment variables, when running post-receive, to non-
+# default values. We unset them to get normal bash behaviour below
+unset GIT_DIR
+unset GIT_WORK_TREE
+
+cd /home/ubuntu/checkout
+git pull
+npm install
+cd -

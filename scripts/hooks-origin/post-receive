@@ -1,0 +1,6 @@
+#!/bin/sh
+
+JENKINS_TOKEN=bbda4048954965eef2eb71e6e3d73192
+
+echo "Triggering Jenkins build"
+curl http://localhost:8080/job/socket-hooked/build?token=${JENKINS_TOKEN}
