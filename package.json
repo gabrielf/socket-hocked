@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "test": "mocha -R spec tests/unit",
-    "func-test": "mocha -R spec tests/functional"
+    "func-test": "mocha --reporter spec --async-only tests/functional"
   },
   "dependencies" : {
     "express": "3.0.3",
