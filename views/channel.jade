@@ -1,0 +1,14 @@
+doctype 5
+html(lang="en")
+  head
+    title Test Socket-Hocked
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js')
+    script(src='/socket.io/socket.io.js')
+    script(src='/js/script.js')
+  body
+    h1 Test Socket-Hocked
+    #container
+      p You are listening to channel:
+        span= channel
+      h2 Messages
+      ul#messages

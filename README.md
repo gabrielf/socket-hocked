@@ -1,10 +1,10 @@
 SocketHooked
 ============
 
-The ambition is to create a simple webhooks to websocket proxy.
+A simple webhooks to websocket proxy.
 
 Some services, such as Github, offer webhooks for easy integration with other
-server software. SocketHocket can transform these HTTP requests to events on a
+server software. SocketHooket can transform these HTTP requests to events on a
 websocket instead.
 
 This can be useful in cases when you don't have the ability to receive HTTP
@@ -19,9 +19,31 @@ The project is also a little testbed for doing continuous deployment. That's
 why there currently is no actual implementation but mostly infrastructure
 around the deploy pipline instead.
 
+## How to use
 
-Continuous deployment
-=====================
+Start with "node app.js". SocketHooked will be available at localhost:8081
+
+Go to http://localhost:8081/channel/{channel-id} where channel-id is a unique
+string of your choosing.
+
+You are now listening on a channel. Everything POSTed to the same URL will be
+forwarded to you via a websocket and displayed on the page.
+
+The actual HTML page is just for demo purposes, you can also connect directly
+with a websocket. See the public/js/script.js or /tests/functional/test.js for
+the details.
+
+For now only form encoded and JSON POSTs will work.
+
+JSON:
+
+   > curl -H 'Content-Type: application/json' -d '{"some": "json"}' localhost:8081/channel/test
+
+Form:
+
+   > curl -F 'key=value' localhost:8081/channel/test
+
+## Continuous deployment
 
 * The setup consists of a origin repo with the post-receive hook found at:
 scripts/hooks-origin/post-receive
@@ -32,7 +54,7 @@ and the post-receive hook: scripts/hooks-amazon/post-receive
 * A Jenkins server with a job that checks out the code from the origin and runs
 scripts/jenkins/pipeline on every change.
 
-## Features of the deployment pipeline
+### Features of the deployment pipeline
 
 1. Builds are triggered on pushes to origin via a post-receive hook
 2. Unit tests will be run on the continuous integration server
@@ -40,7 +62,7 @@ scripts/jenkins/pipeline on every change.
 4. If the functional tests do not pass then the code will be rollbacked to the
    latest working revision
 
-## TODO
+### TODO
 
 * I'd like functional tests to run locally before the deploy to Amazon. This
   should be done without requiring a heavyweight setup. Ideally a free port
@@ -56,4 +78,3 @@ scripts/jenkins/pipeline on every change.
 * Improve the identification of the lastest working revision which is currently
   done using a lightwieght tag that only exists in the repo cloned by Jenkins.
 * Decide how to handle the Amazon pem file on Jenkins.
-* Oh, and actually implement the SocketHocked app :)
