@@ -1,5 +1,5 @@
 $(function () {
-  var socket = io.connect('http://localhost');
+  var socket = io.connect();
 
   var channel = document.location.pathname.match(/channel\/(.*)/)[1];
 
